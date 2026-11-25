@@ -1,0 +1,19 @@
+# Build output
+build/
+*.bar
+*.o
+obj/
+*.log
+__pycache__/
+
+# App data copied from a device
+data/
+
+# Third-party sources (see README)
+third_party/
+
+# Local sign-in tokens and captured API responses for tools/test-yt.sh
+.secrets/
+
+# macOS
+.DS_Store
