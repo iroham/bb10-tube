@@ -12,6 +12,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/BlackBerry_10-10.3-222222" alt="BlackBerry 10.3">
   <img src="https://img.shields.io/badge/version-0.3.2.0-2f80ed" alt="Version 0.3.2.0">
+  <img src="https://img.shields.io/badge/requires-root-e11d48" alt="Requires root">
   <img src="https://img.shields.io/badge/license-MIT-34d399" alt="MIT licence">
 </p>
 
@@ -33,9 +34,14 @@ Tube is a Cascades app with a small C core that talks to YouTube directly and ha
 
 ## Install
 
-Download `org.bq.tube.bar` from the [latest release](https://github.com/iroham/bb10-tube/releases/latest).
+> [!IMPORTANT]
+> Tube needs a rooted BlackBerry 10.3 device. The package is not signed by BlackBerry, and BB10 only installs unsigned packages through its system installer running as root.
 
-The package is not signed by BlackBerry, so it installs through the system installer running as root. You need a BlackBerry 10.3 device with root SSH access.
+There are two ways to install it.
+
+### Option 1: over SSH
+
+Download `org.bq.tube.bar` from the [latest release](https://github.com/iroham/bb10-tube/releases/latest). You need root SSH access to the device.
 
 ```bash
 mkdir -p build && cp ~/Downloads/org.bq.tube.bar build/
@@ -43,6 +49,10 @@ BB10_HOST=root@192.0.2.10 ./install.sh
 ```
 
 `install.sh` copies the package to `/var/nt/work` on the device, writes an installer job and prints the result. It calls `grep` and `sleep` from `/var/nt/bin`; change `B=` in the script if your tools live elsewhere. `BB10_HOST` defaults to an SSH alias named `passport`.
+
+### Option 2: with BarStore
+
+[BarStore](https://github.com/iroham/bb10-barstore) is an app store for rooted BlackBerry 10 devices. Once BarStore and its root helper are set up, Tube can be installed and updated from the store, with no computer or SSH needed. See the [BarStore README](https://github.com/iroham/bb10-barstore#install) for setup.
 
 ## How it works
 
